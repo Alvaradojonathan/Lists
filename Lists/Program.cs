@@ -58,6 +58,7 @@ namespace Lists
             //        Console.WriteLine("No rain today enjoy the sun.");
             //    }
             //}
+
             //List<string> favFoods = new List<string> { "Steak", "Fish", "Ice Cream", "Katudon", "Nachos" };
             //foreach (string food in favFoods)
             //{
@@ -73,19 +74,18 @@ namespace Lists
             //        Console.WriteLine(food);
             //    }
             //}
+
             //Create a list with the following numbers: 1 23 9 77 922 6 32 63 14 5
             //List<int> numbers = new List<int> { 1, 23, 9, 77, 922, 6, 32, 63, 14, 5 };
             ////Use contains method with the following values: 23 77 15
             //Console.WriteLine(numbers.Contains(23));
             //Console.WriteLine(numbers.Contains(77));
             //Console.WriteLine(numbers.Contains(15));
-
-
-
             //numbers.Remove(23);
             //numbers.Remove(77);
             //numbers.Remove(32);
             //numbers.Remove(6);
+
             //if (numbers.Contains(23) || numbers.Contains(77) || numbers.Contains(15))
             //{
             //    Console.WriteLine("23 is at the index of: {0}\n77 is at the index of: {1}\n15 is at the index of: {2}",
@@ -127,27 +127,38 @@ namespace Lists
             //else inform the user it will be ordered
             //continue as long as the user wants to continue
             //if user says quit end program
+
             List<string> movies = new List<string> { "terminator", "spiderman", "the incredible hulk" };
             Console.WriteLine("Welcome to Myflix\n");
             string cont;
             do
             {
+                //Intro
                 Console.WriteLine("Please enter a movie you'd like to watch:");
+                //User Input
                 string movie = Console.ReadLine().ToLower();
+                //If input == quit show list and end program
                 if (movie == "quit")
                 {
-                    foreach(string movieInList in movies)
-                    Console.WriteLine(movieInList);
+                    movies.Sort();
+                    foreach (string movieInList in movies)
+                    {
+                        Console.WriteLine(movieInList);
+                    }
                     Environment.Exit(0);
                 }
-                
+                //Checking if we have the movie in the list
                 if (movies.Contains(movie))
                 {
                     Console.WriteLine("We have that movie!");
                     Console.WriteLine("Would you like to continue searching? Yes/No");
+                    //Ask user if he wants to continue
                     cont = Console.ReadLine().ToLower();
+                    //If input == quit show list and end program
                     if (cont == "quit")
                     {
+                        movies.Sort();
+                        //Display movie list and end program
                         foreach (string movieInList in movies)
                         {
                             Console.WriteLine(movieInList);
@@ -163,6 +174,7 @@ namespace Lists
                     movies.Add(movie);
                     if (cont == "quit")
                     {
+                        movies.Sort();
                         foreach (string movieInList in movies)
                         {
                             Console.WriteLine(movieInList);
@@ -175,8 +187,6 @@ namespace Lists
                 }
             }
             while (cont == "yes");
-
-
         }
     }
 }
